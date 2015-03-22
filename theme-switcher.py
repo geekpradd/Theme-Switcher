@@ -55,15 +55,14 @@ def plugin_loaded():
 def watchFiles(number):
     print ("Watching Package path in a separate thread")
 
-    @setInterval(3)
-    def watch():
-        print ("Running every 3 seconds")
+    @setInterval(5)
+    def watch(number):
         theme_files = list(filter(lambda a: "Theme" in a, os.listdir(get_path())))
         if len(theme_files)!=number:
             print ("doing this")
             number = len(theme_files)
             create_menu()
-    s = watch()
+    s = watch(number)
     
 def plugin_unloaded():
     PACKAGE_FOLDER = os.path.join(sublime.packages_path(), "theme switch")
