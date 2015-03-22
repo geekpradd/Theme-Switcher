@@ -49,8 +49,8 @@ def create_menu():
 
 def plugin_loaded():
     files = create_menu()
-    # t = threading.Thread(target=watchFiles,args=(files,)) 
-    # t.start()
+    t = threading.Thread(target=watchFiles,args=(files,)) 
+    t.start()
 
 def watchFiles(number):
     print ("Watching Package path in a separate thread")
@@ -109,6 +109,7 @@ def modify_menu(LOCATION):
     with open(LOCATION,"w") as f:
         f.write(json.dumps(menu,indent=4, sort_keys=True))
     return len(files)
+    
 class themeCommand(sublime_plugin.WindowCommand):
     def run(self,name):
         USER_FOLDER = os.path.join(sublime.packages_path(), "User")
