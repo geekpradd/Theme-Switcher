@@ -70,7 +70,8 @@ def get_files():
     for theme in theme_files:
         Zip = zipfile.ZipFile(os.path.join(get_path(),theme)) 
         files = list(map(sanitized, list(filter(is_theme_file, Zip.namelist()))))
-        collection[sanitized(theme)] = files
+        if len(files):
+            collection[sanitized(theme)] = files
     user_path = os.path.join(sublime.packages_path(), "User")
     user_themes = list(filter(is_theme_file, os.listdir(user_path)))
     if len(user_themes):
