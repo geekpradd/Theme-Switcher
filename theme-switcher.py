@@ -70,7 +70,8 @@ def get_files():
     for theme in theme_files:
         Zip = zipfile.ZipFile(os.path.join(get_path(),theme)) 
         files = list(map(sanitized, list(filter(is_theme_file, Zip.namelist()))))
-        collection[sanitized(theme)] = files
+        if len(files):
+            collection[sanitized(theme)] = files
     user_path = os.path.join(sublime.packages_path(), "User")
     user_themes = list(filter(is_theme_file, os.listdir(user_path)))
     if len(user_themes):
@@ -87,13 +88,9 @@ def modify_menu(LOCATION):
     
 class themeswitchCommand(sublime_plugin.WindowCommand):
     def run(self,name):
-        USER_FOLDER = os.path.join(sublime.packages_path(), "User")
-        pref = os.path.join(USER_FOLDER, "Preferences.sublime-settings")
-        with open(pref, 'r') as f:
-            data = json.loads(f.read())
-        data['theme'] = name 
-        with open(pref, 'w') as f:
-            f.write(json.dumps(data,indent=4, sort_keys=True))
+        settings = sublime.load_settings("Preferences.sublime-settings")
+        settings.set('theme',name)
+        sublime.save_settings("Preferences.sublime-settings")
 
 class refreshthemesCommand(sublime_plugin.WindowCommand):
     def run(self):
