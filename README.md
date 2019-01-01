@@ -1,10 +1,10 @@
-##Theme Switcher 
+## Theme Switcher 
 
 This is a Sublime Text 3 Plugin to switch Themes directly from the GUI like how Color Schemes can be changed.
 
 This Plugin is in BETA status currently. It has been tested and developed on Sublime Text 3065 Linux x64 on Ubuntu 14.04.
 
-###Why Theme Switcher?
+### Why Theme Switcher?
 
 Sublime Text has many themes available for download from Package Control and many of them are very cool looking. But, there is a slight problem with the entire theme system on activating themes.
 
@@ -22,7 +22,7 @@ So, to just activate a Theme, I have to do a lot of work.
 
 That's where Theme Switcher jumps in. Theme Switcher automatically adds your Themes to the Menu from which you can easily Activate your Themes. Theme Switcher also displays multiple variants of Themes so that you can use them all at ease. For example, all variants of the "Afterglow" Theme can be accessed and activated from the GUI itself.
 
-###Usage
+### Usage
 
 After Installing the plugin, Go to Preferences - Theme - Your Desired Theme. 
 
@@ -36,6 +36,6 @@ If you are developing a Theme for Sublime Text, then your Package name (as given
 
 Also, the current version only supports ST3 and Themes installed by Package Control, although "User" themes support is coming too.
 
-###About 
+### About 
 
 Created by Pradipta (geekpradd). Copyright 2015. MIT Licensed. 
